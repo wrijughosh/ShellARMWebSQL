@@ -4,6 +4,7 @@
   "parameters": {
     "hostingPlanName": {
       "type": "string",
+      "defaultValue":  "wgplan1",
       "minLength": 1
     },
     "skuName": {
@@ -36,13 +37,12 @@
       }
     },
     "administratorLogin": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "wriju"
     },
     "administratorLoginPassword": {
-      "type": "securestring"
-    },
-    "databaseName": {
-      "type": "string"
+      "type": "securestring",
+      "defaultValue": "LS1setup!!!!"
     },
     "collation": {
       "type": "string",
@@ -80,7 +80,9 @@
   },
   "variables": {
     "webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
-    "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]"
+    "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
+    "sqldatabaseName": "[concat('sqldb', uniqueString(resourceGroup().id))]"
+
   },
   "resources": [
     {
@@ -97,7 +99,7 @@
       },
       "resources": [
         {
-          "name": "[parameters('databaseName')]",
+          "name": "[variables('sqldatabaseName')]",
           "type": "databases",
           "location": "[resourceGroup().location]",
           "tags": {
@@ -171,7 +173,7 @@
           ],
           "properties": {
             "DefaultConnection": {
-              "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+              "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('sqldatabaseName'), ';User Id=', parameters('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
               "type": "SQLServer"
             }
           }

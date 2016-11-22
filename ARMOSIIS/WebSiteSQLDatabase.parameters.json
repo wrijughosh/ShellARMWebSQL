@@ -3,13 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "hostingPlanName": {
-            "value": null
+            "value": "wgplan"
         },
         "administratorLogin": {
-            "value": null
-        },
-        "databaseName": {
-            "value": null
+            "value": "wriju"
         }
     }
 }

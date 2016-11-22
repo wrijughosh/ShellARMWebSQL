@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "ARMOSIIS", "ARMOSIIS\ARMOSIIS.deployproj", "{AA5D32FA-9C88-4B6C-A9DC-052FEDF949B6}"
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "ARMWebSQL", "ARMOSIIS\ARMWebSQL.deployproj", "{AA5D32FA-9C88-4B6C-A9DC-052FEDF949B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
